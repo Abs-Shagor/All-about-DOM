@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Js_x_DOM</title>
+
+    
+    <style>
+        #title {
+            text-align: center;
+            color: orange;
+            margin-bottom: 50px;
+        }
+        #main-title {
+            background-color: black;
+            color: violet;
+        }
+        #footer-title {
+            background-color: goldenrod;
+            color: green;
+        }
+        .nav-ul {
+            display: flex;
+            gap: 10px;
+        }
+        .nav-li {
+            height: 30px;
+            width: 100px;
+            background-color: orchid;
+            display: flex;
+        }
+        .nav-li a {
+            color: black;
+        }
+
+        .main-class {
+            color: gray;
+        }
+        *{
+            margin: 5px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        section {
+            background-color: rgb(223, 129, 62);
+            border: 2px solid rgb(148, 153, 51);
+            color: white;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        footer {
+            display: grid;
+            gap: 10px;
+            margin-top: 40px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Sample Html & CSS for testing dom_x_javascript</h1>
+    <header>
+        <h1>E-site</h1>
+        <ul class="nav-ul">
+            <li class="nav-li"><a href="">Home</a></li>
+            <li class="nav-li"><a href="">Feature</a></li>
+            <li class="nav-li"><a href="">About us</a></li>
+            <li class="nav-li"><a href="">Contact</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div id="main-section">
+            <h2 id="main-title">This is main section title</h2>
+            <div class="main-class">
+                <p>This is paragraph-1</p>
+                <p>This is paragraph-2</p>
+                <p>This is paragraph-3</p>
+            </div>
+            <div class="buttons">
+                <button id="btn-1">button-1</button>
+                <button id="btn-2">button-2</button>
+            </di>
+
+            <div id="id1" class="titlex bg-color hi hello ok">
+                Testing add or remove classes/id's.
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-x">
+        <h3 id="footer-title">This is footer section title</h3> 
+        <section>footer section-1</section>
+        <section>footer section-2</section>
+        <section>footer section-3</section>
+        <section>footer section-4</section>
+    </footer>
+
+    <!-- Connect js file via script src tag -->
+    <script src="0_tour_of_dom.js"></script>
+
+    
+    <!-- Or, we can write js code into script tag directly -->
+    <script>
+        // console.log("Hello from html file !");
+    </script>
+
+
+</body>
+</html>

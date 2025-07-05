@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events of dom</title>
+
+    <style>
+        #h-title {
+            text-align: center;
+            color: #4ECDC4;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h-title">All about Eevents</h1>
+    
+    <h3>What is event?</h3>
+    <p> <b>Ans: </b> An event is an action (e.g., click, keypress, mouseover) that triggers JavaScript code.</p>
+    <br><br>
+
+    <!-- different technique of using onclick (we will use btn-8 technique most) -->
+    <button onclick="console.log('Hello Shagor!')">btn-1</button>
+    <button onclick="alert('Whats up bro?')">btn-2</button>
+    <button onclick="document.body.style.background = 'green' ">btn-3</button>
+    <button onclick="fun()">btn-4</button>
+    <button id="id-1">btn-5</button>
+    <button id="id-2">btn-6</button>
+    <button id="id-3">btn-7</button>
+    <button id="id-4">btn-8</button>
+    <br><br><br>
+
+    <!-- input tag info collecting -->
+    <input type="text" name="" id="input-field" placeholder="Enter your name">
+    <button id="input-btn">Click Me</button>
+    <p id="txt-id">the Entered name will appear here</p>
+
+
+
+
+    <script>
+        function fun() {
+            document.body.style.background = 'black';
+            document.body.style.color = 'white';
+        }
+
+        const x = document.getElementById('id-1');
+        x.onclick = fun2;
+        function fun2() {
+            document.body.style.background = 'orange';
+            document.body.style.color = 'black';
+            x.style.padding = '20px';
+            x.style.background = '#333333'
+            x.style.color = 'orange'
+            x.style.borderRadius = '10px'
+        }
+
+        const y = document.getElementById('id-2');
+        y.onclick = function fun3() {
+            document.body.style.background = 'aqua';
+            y.style.marginLeft = '100px'
+        }
+
+        const z = document.getElementById('id-3');
+        z.addEventListener('click',fun4);
+        function fun4() {
+            document.body.style.background = 'pink';
+        }
+
+        // we can use the above technique in a line, which we will use most.
+        document.getElementById('id-4').addEventListener('click', function() {
+            document.body.style.background = 'red'
+        })
+
+        // input tag
+        document.getElementById('input-btn').addEventListener('click', function() {
+            const inputField = document.getElementById('input-field'); 
+            document.getElementById('txt-id').innerText = inputField.value; // set the name in txt-id paragraph
+            inputField.value = ''; // vanishing the entered text from input field after click
+        })
+
+    </script>
+
+
+
+</body>
+</html>
