@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,10 @@
         }
     </style>
 </head>
+
 <body>
     <h1 id="h-title">All about Eevents</h1>
-    
+
     <h3>What is event?</h3>
     <p> <b>Ans: </b> An event is an action (e.g., click, keypress, mouseover) that triggers JavaScript code.</p>
     <br><br>
@@ -29,16 +31,61 @@
     <button id="id-2">btn-6</button>
     <button id="id-3">btn-7</button>
     <button id="id-4">btn-8</button>
-    <br><br><br>
 
-    <!-- input tag info collecting -->
+    <br>
+    <hr><br>
+
+    <!-- input tag info collection & show -->
     <input type="text" name="" id="input-field" placeholder="Enter your name">
     <button id="input-btn">Click Me</button>
     <p id="txt-id">the Entered name will appear here</p>
 
+    <br>
+    <hr><br>
+
+    <!-- comment section -->
+    <div id="comment-section">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sit porro numquam iure odio maxime rerum. Magni
+            veritatis ea placeat ad atque accusantium tenetur optio, in facere eligendi quod illo!</p>
+        <p>Dolorem rem iusto, id repellendus adipisci inventore voluptates magnam provident doloremque error sed sunt
+            earum est iure aperiam pariatur autem sint. Corrupti officiis quia, aut aliquid ullam sed reiciendis
+            voluptatibus.</p>
+    </div>
+    <textarea name="" id="text-area" placeholder="Write ur comment" cols="40" rows="5"></textarea>
+    <br>
+    <button id="post-btn">Post</button>
+
+    <br>
+    <hr><br>
+
+    <!-- 1 To 1 Chat -->
+    <div id="chat-section">
+
+    </div>
+
+    <div style="display: flex; gap: 100px;">
+        <div id="A" style="display: flex; gap: 5px; align-items: center;">
+            <h1 style="width: 25px; background: #4ECDC4; border-radius: 10px;">A</h1>
+            <textarea id="A-text-area" name="" cols="15" rows="3"></textarea>
+            <button id="A-btn" style="height: 25px;">Send</button>
+        </div>
+        <div id="B" style="display: flex; gap: 5px; align-items: center;">
+            <h1 style="width: 25px; background: orange; border-radius: 10px;">B</h1>
+            <textarea id="B-text-area" name="" cols="15" rows="3"></textarea>
+            <button id="B-btn" style="height: 25px;">Send</button>
+        </div>
+    </div>
+
+    <br>
+    <hr><br>
+
+    <!-- github delete system -->
+    <h1 id="github-repo">My Repository 1</h1>
+    <input id="github-text" type="text" name="" placeholder="please type 'delete repo.' ">
+    <button id="github-btn" disabled>delete</button>
 
 
-
+    <!-- JavaScript -->
     <script>
         function fun() {
             document.body.style.background = 'black';
@@ -63,21 +110,82 @@
         }
 
         const z = document.getElementById('id-3');
-        z.addEventListener('click',fun4);
+        z.addEventListener('click', fun4);
         function fun4() {
             document.body.style.background = 'pink';
         }
 
-        // we can use the above technique in a line, which we will use most.
-        document.getElementById('id-4').addEventListener('click', function() {
+        // we will use this technique frequently
+        document.getElementById('id-4').addEventListener('click', function () {
             document.body.style.background = 'red'
         })
+        // Here,some extra event like 'click': focus,keyup,keydown,keypress,blur
+
 
         // input tag
-        document.getElementById('input-btn').addEventListener('click', function() {
-            const inputField = document.getElementById('input-field'); 
+        document.getElementById('input-btn').addEventListener('click', function () {
+            const inputField = document.getElementById('input-field');
             document.getElementById('txt-id').innerText = inputField.value; // set the name in txt-id paragraph
             inputField.value = ''; // vanishing the entered text from input field after click
+        })
+
+        // comment section
+        document.getElementById('post-btn').addEventListener('click', function () {
+            const cmnt = document.getElementById('text-area');
+            const newComment = document.createElement('p');
+            newComment.innerText = cmnt.value;
+            document.getElementById('comment-section').appendChild(newComment)
+            cmnt.value = '';
+        })
+
+        // 1 To 1 Chat
+        document.getElementById('A-btn').addEventListener('click', function () {
+            const AText = document.getElementById('A-text-area');
+
+            const pText = document.createElement('p');
+            pText.innerText = AText.value;
+            pText.style.background = '#4ECDC4';
+            pText.style.maxWidth = '150px'
+            pText.style.textWrap = 'wrap'
+            pText.style.wordBreak = 'break-word'
+            pText.style.borderRadius = '10px'
+            pText.style.padding = '5px'
+            document.getElementById('chat-section').appendChild(pText)
+
+            AText.value = '';
+        })
+
+        document.getElementById('B-btn').addEventListener('click', function () {
+            const BText = document.getElementById('B-text-area');
+
+            const pText = document.createElement('p');
+            pText.innerText = BText.value;
+            pText.style.background = 'orange';
+            pText.style.maxWidth = '150px'
+            pText.style.textWrap = 'wrap'
+            pText.style.wordBreak = 'break-word'
+            pText.style.borderRadius = '10px'
+            pText.style.padding = '5px'
+            pText.style.marginLeft = '365px'
+            document.getElementById('chat-section').appendChild(pText)
+
+            BText.value = '';
+        })
+
+        //github delete system
+        document.getElementById('github-text').addEventListener('keyup', function (event) {
+            const gText = event.target.value;
+            const gButton = document.getElementById('github-btn');
+            if (gText == 'delete repo.') {
+                gButton.removeAttribute('disabled');
+
+                gButton.addEventListener('click', function () {
+                    document.getElementById('github-repo').style.display = 'none'
+                })
+            }
+            else {
+                document.getElementById('github-btn').setAttribute('disabled', true);
+            }
         })
 
     </script>
@@ -85,4 +193,5 @@
 
 
 </body>
+
 </html>
