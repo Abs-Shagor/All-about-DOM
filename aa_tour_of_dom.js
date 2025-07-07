@@ -1,7 +1,8 @@
 
 /* 
 
-=> DOM (Document Object Model) is a programming interface that represent webpage as a tree of object(every object in dom is a node) and lets JavaScript interact(manipulate) with HTML/CSS. 
+=> DOM (Document Object Model) is a programming interface that represent webpage as 
+a tree of object(every object is a node) and lets JavaScript interact(manipulate) with HTML/CSS. 
 A node can be element, text, comment, etc.
 
 => To get elements(html tags[div,a,p,,,etc]) from html we can use the below 5 way:
@@ -11,7 +12,8 @@ A node can be element, text, comment, etc.
 4. querySelector: take single or first element(like getElement ById)
 5. querySelectorAll
 
-above 1,2,5 return a collection(like array) of elements/html tag or DOM node while 3,4 return a single element/html tag.
+above 1,2,5 return a collection(array like object) of elements/ html tag /node
+while 3,4 return a single element/ html tag/ node
 
 */
 

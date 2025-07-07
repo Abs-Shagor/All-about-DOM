@@ -84,6 +84,40 @@
     <input id="github-text" type="text" name="" placeholder="please type 'delete repo.' ">
     <button id="github-btn" disabled>delete</button>
 
+    <br>
+    <hr><br>
+
+    <!-- Exploring Eevent Bubble and stop propagation -->
+    <section id="section-id" style="width: 500px; height: 250px; background: orange;">
+        <h1>Exploring Eevent Bubble and stop propagation</h1>
+        <div id="ul-id" style="background: gray; width: 150px; height: 150px;">
+            <li id="item-1" style="width: 80px; background: violet;">item-1</li>
+            <li id="item-2" style="width: 80px; background: blue;">item-2</li>
+            <li id="item-3" style="width: 80px; background: skyblue;">item-3</li>
+            <li id="item-4" style="width: 80px; background: green;">item-4</li>
+            <li id="item-5" style="width: 80px; background: yellow;">item-5</li>
+            <li id="item-6" style="width: 80px; background: orangered;">item-6</li>
+            <li id="item-7" style="width: 80px; background: red;">item-7</li>
+        </div>
+    </section>
+
+    <br>
+    <hr><br>
+
+    <!-- Exploring Eevent Delegate -->
+    <section>
+        <h1>Exploring Eevent Delegate</h1>
+        <ul id="ul-idx">
+            <li class="itemx">item-1</li>
+            <li class="itemx">item-2</li>
+            <li id="itemx-id">item-3</li>
+            <li class="itemx">item-4</li>
+            <li class="itemx">item-5</li>
+            <li class="itemy">item-6</li>
+        </ul>
+        <button id="add-btn">Add item</button>
+    </section>
+
 
     <!-- JavaScript -->
     <script>
@@ -174,6 +208,9 @@
 
         //github delete system
         document.getElementById('github-text').addEventListener('keyup', function (event) {
+            // in every anonymous function we can pass a parameter(ex.event,a,b,c etc)
+            // here, event.target is the element we clicked [for this code: github-text]
+            // and, event.target.value is the text,number, whatever inside the target
             const gText = event.target.value;
             const gButton = document.getElementById('github-btn');
             if (gText == 'delete repo.') {
@@ -187,6 +224,56 @@
                 document.getElementById('github-btn').setAttribute('disabled', true);
             }
         })
+
+
+        // Exploring Eevent Bubble and stop propagation
+        document.getElementById('item-3').addEventListener('click', function () {
+            console.log('item-3 clicked');
+        })
+        document.getElementById('ul-id').addEventListener('click', function () {
+            console.log('ul part clicked');
+        })
+        document.getElementById('section-id').addEventListener('click', function () {
+            console.log('section part clicked')
+        })
+
+        document.getElementById('item-5').addEventListener('click', function (event) { 
+            console.log('item-3 clicked');
+            event.stopPropagation(); // this will stop the upper execution(mean: only execute item-5)
+        })
+
+
+        // Exploring Eevent Delegate
+        document.getElementById('itemx-id').addEventListener('click', function(event) {
+            /* to remove the clicked element we can use the below method */
+
+            // const pn = event.target.parentNode.removeChild(event.target);
+            // or
+            document.getElementById('ul-idx').removeChild(event.target);
+        })
+
+        // const items = document.getElementsByClassName('itemx');
+        // for(const item of items) {
+        //     item.addEventListener('click', function(event) {
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        // To remove the item added by add button. we can use the remove sytem like this:
+        document.getElementById('ul-idx').addEventListener('click',function(event) {
+            // here we take the whole ul-list. as, there are many li in ul. so,
+            // the event.target is the specific element we clicked.
+            // and this is the event delegate
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        document.getElementById('add-btn').addEventListener('click', function(event) {
+            const cld = document.createElement('li');
+            cld.innerText = 'item-x';
+            cld.classList.add('item-x-class')
+            document.getElementById('ul-idx').appendChild(cld);
+        })
+
 
     </script>
 
